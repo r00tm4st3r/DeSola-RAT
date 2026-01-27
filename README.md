@@ -4,6 +4,8 @@
 
 DeSola-RAT is a research project focused on studying the architecture and behavior of **Remote Access Tools (RATs)** and **Command and Control (C2)** systems within a controlled and ethical environment.
 
+We are developing a remote access tool [RAT]. We can use this to command and control [C2] target computers.
+
 The goal is to better understand how remote administration mechanisms operate so defenders and security researchers can improve detection, analysis, and mitigation strategies.
 
 ## Purpose
@@ -12,6 +14,38 @@ The goal is to better understand how remote administration mechanisms operate so
 - Learn how remote command execution and response handling works at a conceptual level  
 - Support malware analysis, reverse engineering, and defensive security research  
 - Strengthen blue team and ethical hacking knowledge  
+
+## Components
+
+- Keylogger  
+  - Backspace detection  
+- screen shots  
+- webcam  
+- exfiltration  
+  - stealing documents  
+- remote access  
+- credentials  
+  - web  
+  - computer  
+  - applications  
+  - wifi  
+- advanced reconnaissance  
+  - contact information  
+- privesc  
+- worm  
+
+## Roadmap
+
+- redevelop keylogger  
+- obfuscation  
+  - av, vm detection  
+  - disabling firewall, a  
+
+## Extraneous
+
+- bsod [Blue Screen Of Death]  
+- web history  
+- user activity  
 
 ## ⚠️ Legal & Ethical Notice
 
