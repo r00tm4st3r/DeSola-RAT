@@ -1,5 +1,15 @@
 # DeSola-RAT
 
+```
+      :::::::::  :::::::::: ::::::::   ::::::::  :::            :::                   :::::::::      ::: ::::::::::: 
+     :+:    :+: :+:       :+:    :+: :+:    :+: :+:          :+: :+:                 :+:    :+:   :+: :+:   :+:      
+    +:+    +:+ +:+       +:+        +:+    +:+ +:+         +:+   +:+                +:+    +:+  +:+   +:+  +:+       
+   +#+    +:+ +#++:++#  +#++:++#++ +#+    +:+ +#+        +#++:++#++: +#++:++#++:++ +#++:++#:  +#++:++#++: +#+        
+  +#+    +#+ +#+              +#+ +#+    +#+ +#+        +#+     +#+               +#+    +#+ +#+     +#+ +#+         
+ #+#    #+# #+#       #+#    #+# #+#    #+# #+#        #+#     #+#               #+#    #+# #+#     #+# #+#          
+#########  ########## ########   ########  ########## ###     ###               ###    ### ###     ### ###           
+```
+
 ## Overview
 
 DeSola-RAT is a research project focused on studying the architecture and behavior of **Remote Access Tools (RATs)** and **Command and Control (C2)** systems within a controlled and ethical environment.
@@ -36,10 +46,13 @@ The goal is to better understand how remote administration mechanisms operate so
 
 ## Roadmap
 
-- redevelop keylogger  
+- redevelop keylogger
+- screenshots
+- webcam
+- obtaining credential
 - obfuscation  
   - av, vm detection  
-  - disabling firewall, a  
+  - disabling firewall, av
 
 ## Extraneous
 
