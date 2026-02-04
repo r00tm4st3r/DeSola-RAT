@@ -51,4 +51,3 @@ try {
 } catch {
   Write-Warning "Failed to disable Windows Defender"
 }
-
