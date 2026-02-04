@@ -73,6 +73,8 @@ The goal is to better understand how remote administration mechanisms operate so
 2. new malware initializes remote connection
   - any additional tools can be installed remotely
   - keeps a low profile on the payload
+3. modularity
+  - having a directory to store resources for the RAT
 
 ## Extraneous
 
