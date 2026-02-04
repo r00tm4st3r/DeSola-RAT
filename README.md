@@ -28,7 +28,15 @@ The goal is to better understand how remote administration mechanisms operate so
 - Analyze RAT and C2 communication models  
 - Learn how remote command execution and response handling works at a conceptual level  
 - Support malware analysis, reverse engineering, and defensive security research  
-- Strengthen blue team and ethical hacking knowledge  
+- Strengthen blue team and ethical hacking knowledge 
+
+```
+# show files
+attrib -h -s -r FILE
+
+# hide file
+attrib +h +s +r FILE
+```
 
 ## Components
 

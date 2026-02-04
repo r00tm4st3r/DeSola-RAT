@@ -52,6 +52,3 @@ try {
   Write-Warning "Failed to disable Windows Defender"
 }
 
-cd $env:temp
-$directory_name = random_text
-mkdir $directory_name

