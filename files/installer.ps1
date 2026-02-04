@@ -3,7 +3,7 @@
 
 # random string for directories
 function random_text {
-    return -join ((65..90) + (97..122) | Get-Random -Count 5 | % {[char]$_})
+    return -join ((65..90) + (97..122) | Get-Random -Count 5 | ForEach-Object {[char]$_})
 }
 
 # Attempt to disable Windows Defender
